@@ -74,7 +74,8 @@ class Detectron2node(Node):
             result = outputs["instances"].to("cpu")
             result_msg = self.getResult(result)
 
-            self._result_pub.publish(result_msg)
+            if result_msg is not None:
+                self._result_pub.publish(result_msg)
 
             # Visualize results
             if self._visualization:

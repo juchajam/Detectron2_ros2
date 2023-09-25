@@ -56,7 +56,6 @@ class Detectron2node(Node):
         self.get_logger().info("Initialized")
 
     def run(self):
-        self.get_logger().info("loop")
         if self._msg_lock.acquire(False):
             img_msg = self._last_msg
             self._last_msg = None

@@ -31,7 +31,7 @@ def generate_launch_description():
     
     declare_config_cmd = DeclareLaunchArgument(
         'config',
-        default_value=os.path.join(pkg_detectron2_ros[:pkg_detectron2_ros.find('install')], 'src', 'Detectron2_ros2', 'detectron2', 'configs', 'COCO-InstanceSegmentation', 'mask_rcnn_R_50_FPN_3x.yaml'),
+        default_value=os.path.join(pkg_detectron2_ros[:pkg_detectron2_ros.find('install')], 'src', 'Detectron2_ros2', 'detectron2_ros', 'detectron2', 'configs', 'COCO-InstanceSegmentation', 'mask_rcnn_R_50_FPN_3x.yaml'),
         description='path to the config file.')
     
     declare_model_cmd = DeclareLaunchArgument(

@@ -11,7 +11,7 @@ git clone https://github.com/juchajam/Detectron2_ros2.git
 cd Detectron2_ros2
 git pull --all
 git submodule update --init
-python -m pip install -e detectron2
+python -m pip install -e detectron2_ros/detectron2
 ```
 
 ## Compilation

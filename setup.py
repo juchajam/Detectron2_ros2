@@ -1,11 +1,32 @@
-## ! DO NOT MANUALLY INVOKE THIS setup.py, USE CATKIN INSTEAD
+from glob import glob
+import os
 
-from distutils.core import setup
-from catkin_pkg.python_setup import generate_distutils_setup
+from setuptools import setup
 
-# fetch values from package.xml
-setup_args = generate_distutils_setup(
-    packages=['detectron2_ros',],
-    package_dir={'': 'src'})
 
-setup(**setup_args)
+package_name = 'detectron2_ros'
+
+setup(
+    name=package_name,
+    version='0.1.0',
+    packages=[package_name],
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name), glob('launch/*')),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='juchajam',
+    maintainer_email='juchajam@gmail.com',
+    description="The detectron2_ros package.",
+    license='MIT',
+    tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+                'detectron2_ros = detectron2_ros.detectron2_ros:main',
+        ],
+    },
+)
+

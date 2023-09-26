@@ -98,12 +98,9 @@ class Detectron2node(Node):
 
         result_msg = DetectResult()
         result_msg.header = self._header
-        if predictions.has("pred_classes"):
-            result_msg.class_ids = predictions.pred_classes.tolist()
-            result_msg.class_names = np.array(self._class_names)[predictions.pred_classes.numpy()].tolist()
-            
-        if predictions.has("scores"):
-            result_msg.scores = predictions.scores.tolist()
+        result_msg.class_ids = predictions.pred_classes.tolist()
+        result_msg.class_names = np.array(self._class_names)[predictions.pred_classes.numpy()].tolist()
+        result_msg.scores = predictions.scores.tolist()
 
         for i, (x1, y1, x2, y2) in enumerate(boxes):
             mask = np.zeros(masks[i].shape, dtype="uint8")
